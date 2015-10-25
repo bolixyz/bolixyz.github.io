@@ -1,0 +1,23 @@
+# Permalinks
+#
+# Use of `relative_permalinks` ensures post links from the index work properly.
+permalink:           pretty
+relative_permalinks: true
+
+# Setup
+title:               Corner
+tagline:             'A small place for possibilities'
+description:         'Random readings and thoughts in my exploration of machine intelligence.'
+url:                 http://bolixyz.github.io
+baseurl:             ''
+paginate:            10
+
+# About/contact
+author:
+  name:              Bo
+  url:               http://bolixyz.github.io
+  email:             boli.xyz@gmail.com
+
+# Custom vars
+version:             1.0.0
+
