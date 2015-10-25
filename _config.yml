@@ -6,7 +6,7 @@ relative_permalinks: true
 
 # Setup
 title:               Corner
-tagline:             'A small place for possibilities'
+tagline:             'A small place for huge possibilities'
 description:         'Random readings and thoughts in my exploration of machine intelligence.'
 url:                 http://bolixyz.github.io
 baseurl:             ''
