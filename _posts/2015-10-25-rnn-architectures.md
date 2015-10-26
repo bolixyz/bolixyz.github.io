@@ -35,17 +35,22 @@ $$
 
 ### Findings
 
+> The LSTM's main idea is that, instead of computing $$S_t$$ from $$S_{t-1}$$ directly with a matrix vector product followed by a nonlinearity (which causes the vanishing gradient problem), the LSTM directly computes $$\Delta S_t$$, which is then added to $$S_{t-1}$$ to obtain $$S_t$$. 
+> ... just like a tanh-based network has better-behaved gradients than a sigmoid-based network, the gradients of an RNN that computes $$\Delta S_t$$ are nicer as well, since they can not vanish.
+
 And from experimenting with different variations / modifications of the above two models, GRU outperformed LSTM on most tasks; while if ***adding a bias of 1 to the LSTM's forget gate closes the gap between them***.
 
 The reason is that:
 
-> But this initialization (small random weights) effectively sets the forget gate to 0.5. This introduces a vanishing gradient with a factor of 0.5 per timestep, which can cause problems whenever the long term dependencies are particularly severe. This problem is addressed by simply initializing the forget gates $b_f$ to a large value such as 1 or 2. By doing so, the forget gate will be initialized to a value that is close to 1, enabling gradient flow.
+> But this initialization (small random weights) effectively sets the forget gate to 0.5. This introduces a vanishing gradient with a factor of 0.5 per timestep, which can cause problems whenever the long term dependencies are particularly severe. This problem is addressed by simply initializing the forget gates $$b_f$$ to a large value such as 1 or 2. By doing so, the forget gate will be initialized to a value that is close to 1, enabling gradient flow.
+
+
 
 ### Some insights on LSTM gates:
 
 * The **forget gate** is of the greatest importance;
 * The 2nd most important gate is the **input gate**;
-* The **output gate** was the least important one. When removed, $h_t$ simply becomes $\tanh(c_t)$ which was sufficient for retaining most of the LSTM's performance.
+* The **output gate** was the least important one. When removed, $$h_t$$ simply becomes $$\tanh(c_t)$$ which was sufficient for retaining most of the LSTM's performance.
 
 However, when dropout is used, the above patterns do not hold. In one of their experiments, the LSTMs without input or output gates actually performed the best.
 
