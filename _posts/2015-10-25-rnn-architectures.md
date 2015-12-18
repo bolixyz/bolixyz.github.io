@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Comparisons of RNN Architectures
+comments: true
 ---
 
 In the paper *[An Empirical Exploration of Recurrent Network Architectures](http://jmlr.org/proceedings/papers/v37/jozefowicz15.pdf)*, the authors did a thorough exploration of different variations of the current popular RNN models: LSTM and Gated Recurrent Unit (GRU)
@@ -37,6 +38,8 @@ $$
 
 > The LSTM's main idea is that, instead of computing $$S_t$$ from $$S_{t-1}$$ directly with a matrix vector product followed by a nonlinearity (which causes the vanishing gradient problem), the LSTM directly computes $$\Delta S_t$$, which is then added to $$S_{t-1}$$ to obtain $$S_t$$. 
 > ... just like a tanh-based network has better-behaved gradients than a sigmoid-based network, the gradients of an RNN that computes $$\Delta S_t$$ are nicer as well, since they can not vanish.
+
+> An LSTM with $$n$$ memory cells has a hidden state of dimension $$2n$$.
 
 And from experimenting with different variations / modifications of the above two models, GRU outperformed LSTM on most tasks; while if ***adding a bias of 1 to the LSTM's forget gate closes the gap between them***.
 
