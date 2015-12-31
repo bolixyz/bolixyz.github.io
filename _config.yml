@@ -7,7 +7,7 @@ gems:                [jekyll-paginate]
 
 # Setup
 title:               Corner
-tagline:             'A small corner for huge possibilities'
+tagline:             'A small place for huge possibilities'
 description:         'Random readings and thoughts in my exploration of machine intelligence.'
 url:                 http://bolixyz.github.io
 baseurl:             ''
